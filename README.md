@@ -1,24 +1,63 @@
-# README
+# usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column              | Type    | Options               |
+| --------------------|---------|-----------------------|
+| email               | string  | NOT NULL ,ユニーク制約  |
+| encrypted_password  | string  | NOT NULL              |
+| name                | string  | NOT NULL              |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many: items
+- has_many: buys
 
-* System dependencies
 
-* Configuration
+# itemsテーブル
 
-* Database creation
+| Column              | Type      | Options             |
+| --------------------|-----------|---------------------|
+| title               |   string  | NOT NULL            |
+| explanation         |   text    | NOT NULL            |
+| category_id         |   string  | NOT NULL            |
+| situation_id        |   string  | NOT NULL            |
+| delivery_id         |   string  | NOT NULL            |
+| price               |  integer  | NOT NULL            |
+| user                | references| NOT NULL , 外部キー  | 
 
-* Database initialization
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to: user
+- has_one: buy
 
-* Deployment instructions
+# buysテーブル
 
-* ...
+
+| Column              | Type       | Options
+| --------------------|------------|---------------------
+| items               | reference  | NOT NULL, 外部キー
+| user                | reference  | NOT NULL, 外部キー
+
+
+### Association
+
+- belongs_to: user
+- belongs_to: item
+- has_one: address
+
+# addressテーブル
+
+
+| Column              | Type    | Options               |
+| --------------------|---------|-----------------------|
+| postal_code         | string  | NOT NULL              |
+| prefectures         | string  | NOT NULL              |
+| city                | string  | NOT NULL              |
+| house_number        | string  | NOT NULL              |
+| building_name       | string  |                       |
+| user                |reference| NOT NULL,外部キー      |
+
+
+### Association
+
+- belongs_to: buy
