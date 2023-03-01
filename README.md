@@ -9,7 +9,7 @@
 | first_name          | string  | null: false              |
 | last_name_kana      | string  | null: false              |
 | first_name_kana     | string  | null: false              | 
-| birthday_id         | integer | null: false              |
+| birthday            | deta      | null: false              |
 
 ### Association
 
@@ -27,7 +27,7 @@
 | category_id         |  integer  | null: false                      |
 | situation_id        |  integer  | null: false                      |
 | delivery_id         |  integer  | null: false                      |
-| prefectures_id      |  integer  | null: false                      |
+| prefecture_id       |  integer  | null: false                      |
 | send_id             |  integer  | null: false                      |
 | price               |  integer  | null: false                      |
 | user                | references| null: false  ,foreign_key: true  | 
@@ -43,8 +43,8 @@
 
 | Column              | Type       | Options                        |   
 | --------------------|------------|--------------------------------|
-| item                | reference  | null: false, foreign_key: true |
-| user                | reference  | null: false, foreign_key: true |
+| item                | references | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -56,14 +56,15 @@
 # addresssテーブル
 
 
-| Column              | Type    | Options               |
-| --------------------|---------|-----------------------|
-| postal_code         | integer | null: false           |
-| prefectures         | string  | null: false           |
-| city                | string  | null: false           |
-| house_number        | string  | null: false           |
-| building_name       | string  |                       |
-| tel_number          | integer | null: false           |
+| Column              | Type     | Options                           |
+| --------------------|----------|-----------------------------------|
+| postal_code         | string   | null: false                       |
+| prefectures         | string   | null: false                       |
+| city                | string   | null: false                       |
+| house_number        | string   | null: false                       |
+| building_name       | string   |                                   |
+| tel_number          | string   | null: false                       |
+| buy                 |references| null: false,foreign_key: true     |    
 
 
 ### Association
