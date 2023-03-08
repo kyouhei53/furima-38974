@@ -9,10 +9,10 @@ RSpec.describe Item, type: :model do
 
   describe '商品表示機能' do
     context '商品を出品できるとき' do
-    it '商品情報が正しく入力されているとき' do
-      expect(@item).to be_valid
+      it '商品情報が正しく入力されているとき' do
+        expect(@item).to be_valid
+      end
     end
-  end
 
     context '商品を出品できないとき' do
       it '商品名が空では出品できない' do
@@ -21,7 +21,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Title can't be blank")
       end
       it '商品の説明が空では出品できない' do
-        @item.explanation= ''
+        @item.explanation = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Explanation can't be blank")
       end
@@ -60,10 +60,6 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
-
-
-
-
     end
   end
 end
