@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @user = User.new
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
@@ -17,7 +16,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @user = User.new
   end
 
   private
