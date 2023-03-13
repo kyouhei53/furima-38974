@@ -36,7 +36,7 @@
 ### Association
 
 - belongs_to: user
-- has_one: buy
+- has_many: buy
 
 # buysテーブル
 

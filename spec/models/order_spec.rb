@@ -61,6 +61,16 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Tel number number is invalid. Include half-width numbers")
       end
+      it '電話番号が9桁以下では購入できない' do
+        @order.tel_number = '12345678'
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Tel number number is invalid. Include half-width numbers")
+      end
+      it '電話番号が12桁以上では購入できない' do
+        @order.tel_number = '123456789123'
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Tel number number is invalid. Include half-width numbers")
+      end
       it "tokenが空では登録できない" do
         @order.token = nil
         @order.valid?
