@@ -6,6 +6,10 @@ class BuysController < ApplicationController
     @buy = Order.new
     if current_user == @item.user
       redirect_to root_path
+    elsif @item.buy.present?
+      current_user != @item.user
+      redirect_to root_path
+    end
   end
 
   def create
@@ -36,7 +40,7 @@ end
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 end
 

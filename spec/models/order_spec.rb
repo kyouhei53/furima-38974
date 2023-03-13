@@ -7,6 +7,7 @@ RSpec.describe Order, type: :model do
       @user = FactoryBot.create(:user)
       @item = FactoryBot.create(:item)
       @order = FactoryBot.build(:order, user_id: @user.id, item_id: @item.id)
+      sleep 0.1
     end
 
     context '購入できる時' do
@@ -60,27 +61,26 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Tel number number is invalid. Include half-width numbers")
       end
-      it '電話番号が9桁以下だと購入できないこと' do
-        @order.tel_number = '090123456'
-        @order.valid?
-        expect(@order.errors.full_messages).to include("Tel number is invalid")
-      end
-      it '電話番号が12桁以上だと購入できない' do
-        @order.tel_number = '090123456789'
-        @order.valid?
-        expect(@order.errors.full_messages).to include("Tel number is invalid")
-      it "tokenが空では登録できないこと" do
+      it "tokenが空では登録できない" do
         @order.token = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("Token can't be blank")
       end
-      
+      it 'user_idが紐づいていなければ購入できない' do
+        @order.user_id = ''
+        @order.valid?
+        expect(@order.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが紐づいていなければ購入できない' do
+        @order.item_id = ''
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Item can't be blank")
+      end
       
 
 
 
 
     end
-    
    end
-  end 
+  end

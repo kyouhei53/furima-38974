@@ -9,6 +9,8 @@ class Order
     validates :house_number
     validates :tel_number, format: { with: /\A0[0-9]+\z/, message: 'number is invalid. Include half-width numbers' } 
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
    
