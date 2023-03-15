@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   post 'items/new'
   resources :items do
     resources :buys, only: [:index, :create]
+    resources :comments, only: :create
   end
 end
