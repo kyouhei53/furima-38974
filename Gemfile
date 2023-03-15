@@ -70,3 +70,4 @@ gem 'active_hash'
 gem 'payjp'
 gem 'dotenv-rails'
 gem "aws-sdk-s3", require: false
+gem 'rails-i18n'
