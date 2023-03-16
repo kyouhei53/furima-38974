@@ -3,8 +3,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to item_path(params[:item_id])
-    end
   end
+end
 
   private
   def comment_params

@@ -145,9 +145,18 @@
   width: 40vw;
   background-color: #fff;
   margin: 5vh 0;
+  display: flex;
+  justify-content: center;
   text-align: center;
 
 }
+
+.comment-form{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 
 .comment-text {
   width: 100%;
@@ -165,7 +174,8 @@
   text-align: center;
 }
 
-.comment-btn {
+.comment-submit{
+  margin: 20px;
   line-height: 48px;
   background-color: #3CCACE;
   border: 1px solid #3CCACE;
@@ -178,6 +188,8 @@
   
 }
 
+
+
 .comment-flag {
   display: flex;
   justify-content: center;
@@ -186,6 +198,12 @@
 .comment-flag-icon {
   margin: 10px 5px 0 0;
 }
+
+.comment{
+  display: flex;
+  justify-content: center;
+}
+
 
 .links {
   display: flex;

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "items#index"
   post 'items/new'
   resources :items do
-    resources :buys, only: [:index, :create]
     resources :comments, only: :create
+    resources :buys, only: [:index, :create]
   end
 end
